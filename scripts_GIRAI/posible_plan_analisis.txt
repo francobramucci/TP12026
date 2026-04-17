@@ -1,0 +1,18 @@
+En el presente análisis se hará foco en cómo afecta la participación de actores
+no estatales al índice GIRAI. Siendo este factor uno de los pilares dentro de
+las areas temáticas del GIRAI. (Es decir que se hará un recorte de las variables relacionadas con el privado)
+
+Análisis univariado: índice GIRAI (histograma), tipo_privado_es (barras)
+
+Análisis bivariado: GIRAI cruzado con privado. Además se podría hacer un
+análisis multivariado cruzando con alguna variable relacionada con el estado
+para mostrar que la acción privada es necesaria pero no suficiente y que se
+requiere regulación estatal.
+
+Descripción gráfica de una variable categórica de respuesta múltiple: p70, se
+puede cruzar con privado para mostrar que ningún país que carezca de acción
+privada cumple con algún p70.
+
+
+
+
