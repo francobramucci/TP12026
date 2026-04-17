@@ -13,6 +13,9 @@ Descripción gráfica de una variable categórica de respuesta múltiple: p70, s
 puede cruzar con privado para mostrar que ningún país que carezca de acción
 privada cumple con algún p70.
 
+Porcentaje de coincidencia entre tipos de iniciativas mas frecuentes entre
+el sector privado y sector publico de un país. Barras o bastones, en eje X los países
+(variable categórica) y en el Y el porcentaje de coincidencia en ese país. 
 
 
 
