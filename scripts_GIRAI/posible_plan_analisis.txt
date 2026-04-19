@@ -9,12 +9,14 @@ GRAFICOS MINIMOS PARA LA CONSIGNA (SEGUN LO PEDIDO EN EL ENUNCIADO):
 
 --- descripción gráfica de una variable categórica medida en escala nominal:
 Opcion 1: Distribución de iniciativas mas frecuentes del sector privado (barras horizontales) [X = tipo_privado_es]
-Opción 2: Distribución de iniciativas mas frecuentes de la acamdia (barras horizontales) [X = tipo_academia_es]
+Opción 2: Distribución de iniciativas mas frecuentes de la academia (barras horizontales) [X = tipo_academia_es]
 
 --- descripción gráfica de una variable categórica medida en escala ordinal:
 Opción 1: Distribución de nivel de desarrollo de los marcos normativos gubernamentales con la IA (barras verticales) [X = sec_mng]
 Opción 2: Distribución de nivel de desarrollo de las acciones gubernamentales con la IA (barras verticales) [X = sec_ag]
 Opción 3: Distribución de nivel de desarrollo de actores no estatales en el país con respecto a la IA (barras verticales)  [X = sec_ane]
+EN TODOS ESTOS GRAFICOS SE PUEDE FILTRAR POR privado=si y luego por privado=no para tener una dupla de cada uno de estos graficos y compararlos. Aun asi mas abajo en análisis
+bivariado podría hacerse un único grafico que resume eso por sí solo.
 
 --- descripción gráfica de una variable categórica de respuesta múltiple
 A COMPLETAR
@@ -22,6 +24,9 @@ A COMPLETAR
 --- descripción gráfica de una variable cuantitativa discreta:
 Opcion 1: Distribución de cantidad de áreas temáticas de las que se hicieron eventos públicos EN PAISES DONDE NO HAY SECTOR PRIVADO
 TRABAJANDO EN IA, para ver si el estado es el que se esta encargando de concientizar (bastones) [X = areas_concient, con filtro de privado = NO]
+Opcion 2: Distribución de cantidad de áreas temáticas de las que se hicieron eventos públicos EN PAISES DONDE SI HAY SECTOR PRIVADO
+TRABAJANDO EN IA, para ver si el hecho de que haya mucho sector_privado hace que el estado "se deje estar" y no concientice (bastones) [X = areas_concient, con filtro de privado = SI]
+Se puede ajustar más fino aun el "qué tanto sector privado" filtrando por la fila areas_ane (por ejemplo <10 o >10) en ambos casos
 
 --- descripción gráfica de una variable cuantitativa continua:
 Opción 1: Distribución de puntos asignados a la dimensión de capacidades en IA EN PAISES DONDE SI HAY SECTOR PRIVADO TRABAJANDO 
@@ -46,6 +51,7 @@ Opción 1: Relación entre America (sumar Norte y Sur con Central) y Europa con 
 (boxplot comparativo con bigotes) [eje X=continente, 2 grupos solo, Europa vs America, sacados a partir de GIRAI_region. Eje Y=GIRAI, puntos girai
 de cada continente, dentro de un bloxpot, con los valores máximos, mínimos, medianos y atípicos en el caso que los haya] en diapositiva
 176 de unidad 2 hay buen ejemplo de este tipo de grafico complejo.
+Opción 2: Mismo grafico con respecto a eje Y (GIRAI) pero esta vez en las categorías comparando intervencion_privada=si vs intervencion_privada=no.
 
 --- descripción gráfica de la relación entre dos variables cuantitativas
 Opcion 1: Relación entre cantidad de áreas temáticas donde existen regulaciones, leyes, etc, con respecto
