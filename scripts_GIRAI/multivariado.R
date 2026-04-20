@@ -1,7 +1,7 @@
 library(ggplot2)
 
 # Gráfico de dispersión multivariado
-grafico_multivariado <- ggplot(datos, aes(x = mng, y = GIRAI, color = privado)) +
+grafico_multivariado <- ggplot(datos, aes(x = mng, y = GIRAI, color = academia)) +
   geom_point(size = 3, alpha = 0.7) + # Puntos
   geom_smooth(method = "lm", se = FALSE, linetype = "dashed") + # Línea de tendencia
   theme_minimal() +
