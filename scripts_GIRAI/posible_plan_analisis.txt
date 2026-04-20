@@ -2,7 +2,65 @@ En el presente análisis se hará foco en cómo afecta la participación de acto
 no estatales al índice GIRAI. Siendo este factor uno de los pilares dentro de
 las areas temáticas del GIRAI. (Es decir que se hará un recorte de las variables relacionadas con el privado)
 
-Análisis univariado: índice GIRAI (histograma), tipo_privado_es (barras)
+
+
+-------------------------------------------------------------------------------
+GRAFICOS MINIMOS PARA LA CONSIGNA (SEGUN LO PEDIDO EN EL ENUNCIADO):
+
+--- descripción gráfica de una variable categórica medida en escala nominal:
+Opcion 1: Distribución de iniciativas mas frecuentes del sector privado (barras horizontales) [X = tipo_privado_es]
+Opción 2: Distribución de iniciativas mas frecuentes de la academia (barras horizontales) [X = tipo_academia_es]
+
+--- descripción gráfica de una variable categórica medida en escala ordinal:
+Opción 1: Distribución de nivel de desarrollo de los marcos normativos gubernamentales con la IA (barras verticales) [X = sec_mng]
+Opción 2: Distribución de nivel de desarrollo de las acciones gubernamentales con la IA (barras verticales) [X = sec_ag]
+Opción 3: Distribución de nivel de desarrollo de actores no estatales en el país con respecto a la IA (barras verticales)  [X = sec_ane]
+EN TODOS ESTOS GRAFICOS SE PUEDE FILTRAR POR privado=si y luego por privado=no para tener una dupla de cada uno de estos graficos y compararlos. Aun asi mas abajo en análisis
+bivariado podría hacerse un único grafico que resume eso por sí solo.
+
+--- descripción gráfica de una variable categórica de respuesta múltiple
+A COMPLETAR
+
+--- descripción gráfica de una variable cuantitativa discreta:
+Opcion 1: Distribución de cantidad de áreas temáticas de las que se hicieron eventos públicos EN PAISES DONDE NO HAY SECTOR PRIVADO
+TRABAJANDO EN IA, para ver si el estado es el que se esta encargando de concientizar (bastones) [X = areas_concient, con filtro de privado = NO]
+Opcion 2: Distribución de cantidad de áreas temáticas de las que se hicieron eventos públicos EN PAISES DONDE SI HAY SECTOR PRIVADO
+TRABAJANDO EN IA, para ver si el hecho de que haya mucho sector_privado hace que el estado "se deje estar" y no concientice (bastones) [X = areas_concient, con filtro de privado = SI]
+Se puede ajustar más fino aun el "qué tanto sector privado" filtrando por la fila areas_ane (por ejemplo <10 o >10) en ambos casos
+
+--- descripción gráfica de una variable cuantitativa continua:
+Opción 1: Distribución de puntos asignados a la dimensión de capacidades en IA EN PAISES DONDE SI HAY SECTOR PRIVADO TRABAJANDO 
+Y LA CANTIDAD DE AREAS TEMATICASS DONDE SE IDENTIFICARON TRABAJANDO ES MAYOR a 10, para ver si la intervención de mas del 50%
+en áreas del sector privado ayuda las capacidades de IA del país [X = cap, con filtro de privado=SI y filtro areas_ane > 10]
+
+--- medida de posición que mejor acompañe a los recursos gráficos anteriormente mencionados:
+A COMPLETAR LUEGO DE HACER LOS GRAFICOS Y VER CÓMO SALEN
+
+--- consideraciones sobre la dispersión de las variables (puede ser a través de una
+medida resumen o a partir de algún recurso gráfico), en aquellos casos en los que sea apropiado:
+A COMPLETAR LUEGO DE HACER LOS GRAFICOS Y VER COMO SALEN
+
+--- descripción gráfica de la relación entre dos variables categóricas
+Opción 1: Relación entre países CON/SIN academias y universidades trabajando en IA con respecto a si tienen 70 puntos o mas
+en el área temática de Transparencia y Explicabilidad, para ver si la intervención en la investigación de las universidades hace
+mas trasparente y alcanzable al asunto IA en general. (barras subdivididas superpuestas) [eje X=academia, 2 grupos, cada una de
+las 2 barras divididas según p70_transp 1 o 0 identificados por 2 colores distintos]
+
+--- descripción gráfica de la relación entre una variable categórica y una variable cuantitativa
+Opción 1: Relación entre America (sumar Norte y Sur con Central) y Europa con respecto a sus puntos GIRAI generales. Para comparar ambos continentes.
+(boxplot comparativo con bigotes) [eje X=continente, 2 grupos solo, Europa vs America, sacados a partir de GIRAI_region. Eje Y=GIRAI, puntos girai
+de cada continente, dentro de un bloxpot, con los valores máximos, mínimos, medianos y atípicos en el caso que los haya] en diapositiva
+176 de unidad 2 hay buen ejemplo de este tipo de grafico complejo.
+Opción 2: Mismo grafico con respecto a eje Y (GIRAI) pero esta vez en las categorías comparando intervencion_privada=si vs intervencion_privada=no.
+
+--- descripción gráfica de la relación entre dos variables cuantitativas
+Opcion 1: Relación entre cantidad de áreas temáticas donde existen regulaciones, leyes, etc, con respecto
+al puntaje obtenido en cuanto derechos humanos, para ver si la intervención del gobierno explica el aumento (o descenso) de
+este pilar (dispersión de puntos) [eje X variable explicativa = areas_mng, eje Y = ddhh]
+Opción 2: Relación entre puntaje GIRAI global con la cantidad de áreas temáticas donde hay sector privado
+EN LOS PAISES DONDE LA INTERVENCION DEL SECTOR PUBLICO ES BAJA (dispersión de puntos) [eje X variable explicativa = areas_ane, eje Y = GIRAI,
+con filtro areas_ag < 5~10 y areas_concient < 5 ~ 10].
+------------------------------------------------------------------------
 
 Análisis bivariado: GIRAI cruzado con privado. Además se podría hacer un
 análisis multivariado cruzando con alguna variable relacionada con el estado
@@ -13,6 +71,9 @@ Descripción gráfica de una variable categórica de respuesta múltiple: p70, s
 puede cruzar con privado para mostrar que ningún país que carezca de acción
 privada cumple con algún p70.
 
+Porcentaje de coincidencia entre tipos de iniciativas mas frecuentes entre
+el sector privado y sector publico de un país. Barras o bastones, en eje X los países
+(variable categórica) y en el Y el porcentaje de coincidencia en ese país. 
 
 
 
