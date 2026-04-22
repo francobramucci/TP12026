@@ -21,7 +21,50 @@ grafico_privado <- ggplot(datos_analisis, aes(x = privado, y = GIRAI, fill = pri
     x = "¿Hay actores del sector privado trabajando en IA?",
     y = "Puntaje Global GIRAI"
   ) +
-  theme(legend.position = "none") # Quitamos la leyenda porque el eje X ya lo explica
+  theme(legend.position = "none") + # Quitamos la leyenda porque el eje X ya lo explica
+  stat_summary(
+    fun.data = function(x) {
+      stats <- boxplot.stats(x)$stats
+      data.frame(y = stats, label = round(stats, 1))
+    },
+    geom = "text",
+    position = position_jitter(width = 0.1),
+    size = 3
+  )
 
 # Mostramos el gráfico
 print(grafico_privado)
+
+# Filtramos los países que sí tienen un dato válido en la columna 'privado'
+datos_analisis <- datos %>%
+  filter(!is.na(academia))
+
+# Generamos el gráfico
+grafico_academia <- ggplot(datos_analisis, aes(x = academia, y = GIRAI, fill = academia)) +
+  # 1. Dibujamos el boxplot, pero lo hacemos un poco transparente
+  geom_boxplot(alpha = 0.5, outlier.shape = NA) + 
+  
+  # 2. Agregamos los puntos individuales con 'geom_jitter'
+  # width = 0.2 hace que los puntos no formen una línea recta vertical, sino que se dispersen un poco
+  geom_jitter(width = 0.2, alpha = 0.8, color = "darkgray") +
+  
+  theme_minimal() +
+  labs(
+    title = "Impacto del Sector Académico en el Índice de IA",
+    subtitle = "Los puntos grises representan cada país individual",
+    x = "¿Hay actores de la academia o universidades trabajando en el país sobre IA?",
+    y = "Puntaje Global GIRAI"
+  ) +
+  theme(legend.position = "none") + # Quitamos la leyenda porque el eje X ya lo explica
+  stat_summary(
+    fun.data = function(x) {
+      stats <- boxplot.stats(x)$stats
+      data.frame(y = stats, label = round(stats, 1))
+    },
+    geom = "text",
+    position = position_jitter(width = 0.2),
+    size = 3
+  )
+
+#Mostramos el gráfico
+print(grafico_academia)
