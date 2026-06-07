@@ -7,7 +7,7 @@ grafico_multivariado <- ggplot(datos, aes(x = mng, y = GIRAI, color = academia))
   theme_minimal() +
   scale_color_manual(values = c("No" = "tomato", "Sí" = "steelblue")) +
   labs(
-    title = "El camino hacia la cima: Interacción entre Estado y Privados",
+    title = "Interacción entre Estado y Privados",
     subtitle = "Relación entre Marcos Normativos y el Índice GIRAI, agrupado por acción privada",
     x = "Acción del Estado: Marcos Normativos (0-100)",
     y = "Puntaje Global GIRAI (0-100)",
