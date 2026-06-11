@@ -4,40 +4,54 @@ library(ggplot2)
 
 # 1. Preparación de los datos y cálculo de porcentajes
 datos_academia <- datos %>%
-  # Limpiamos los valores nulos
   filter(!is.na(academia)) %>%
   count(academia) %>%
-  # Calculamos el peso relativo para las etiquetas
   mutate(porcentaje = round((n / sum(n)) * 100, 1))
 
 # 2. Generación del gráfico circular
-grafico_torta_academia <- ggplot(datos_academia, aes(x = "", y = n, fill = academia)) +
+grafico_torta_academia <- ggplot(datos_academia) +
   
-  # Construimos la geometría base y la transformamos a coordenadas polares
+  # Capa de estéticas independiente
+  aes(x = "", y = n, fill = academia) +
+  
+  # Construcción de la geometría circular
   geom_bar(stat = "identity", width = 1, color = "white", linewidth = 1) +
   coord_polar("y", start = 0) +
   
-  # Insertamos las etiquetas con el Porcentaje y el (n) absoluto
+  # Etiquetas de datos (Porcentaje y n)
   geom_text(aes(label = paste0(porcentaje, "%\n(n=", n, ")")), 
             position = position_stack(vjust = 0.5), 
-            color = "white", size = 5, fontface = "bold") +
+            color = "white", size = 5) +
   
-  # Usamos verde (seagreen) para diferenciar al sector académico del privado
-  scale_fill_manual(values = c("No" = "tomato", "Sí" = "seagreen")) +
+  # Paleta de colores
+  scale_fill_manual(values = c("Sí" = "seagreen", "No" = "tomato")) +
   
+  # Temas base para gráficos circulares
   theme_void() + 
   
-  labs(
-    title = "Estructura Global del Ecosistema de IA",
-    subtitle = "Proporción de países según la participación del sector académico",
-    fill = "Participación Académica:"
+  # Personalización del tema estandarizada
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "plain", margin = margin(t = 5, b = -10)),
+    legend.position = "bottom",
+    plot.caption = element_text(size = 8, color = "gray40", hjust = 1, margin = margin(t = 15))
   ) +
   
-  theme(
-    plot.title = element_text(hjust = 0.5, face = "bold", margin = margin(b = 10)),
-    plot.subtitle = element_text(hjust = 0.5, margin = margin(b = 20)),
-    legend.position = "bottom"
+  # Etiquetas: Único título descriptivo y fuente
+  labs(
+    title = "Proporción de países según participación de la academia en IA",
+    fill = "Participación Académica en IA:",
+    caption = "Fuente: Índice Global de IA Responsable 2023-2024, Centro Global para la Gobernanza de la IA"
   )
 
-# 3. Imprimir el gráfico en la consola
+# 3. Imprimir el gráfico en consola
 print(grafico_torta_academia)
+
+# 4. Exportación parametrizada con ruta relativa estricta
+ggsave(
+  filename = "scripts_GIRAI/exports/uni_nominal_academia.png",
+  plot = grafico_torta_academia,
+  width = 6.5,
+  height = 4.2,
+  units = "in",
+  dpi = 300
+)

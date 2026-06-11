@@ -20,31 +20,36 @@ grafico_privado <- ggplot(datos_analisis) +
   geom_jitter(color = "gray30", alpha = 0.5, size = 1.5, width = 0.2) +
   
   # Mantenemos la consistencia cromática para el sector privado
-  scale_fill_manual(values = c("No" = "tomato", "Sí" = "springgreen4")) +
+  scale_fill_manual(values = c("No" = "tomato", "Sí" = "royalblue")) +
   
   # Temas base
   theme_minimal() +
   
   # Personalización del tema (título SIN negrita, alineado al centro)
   theme(
+    # Título centrado respecto a la imagen completa
+    plot.title.position = "plot",
     plot.title = element_text(hjust = 0.5, face = "plain", margin = margin(b = 20)),
+    
     legend.position = "none", # Ocultamos leyenda porque el eje X ya lo explica
     axis.text = element_text(size = 11, color = "black"),
     panel.grid.minor = element_blank(),
-    axis.line = element_line(color = "black", linewidth = 0.5)
+    axis.line = element_line(color = "black", linewidth = 0.5),
+    
+    # Fuente anclada al lienzo completo, a la izquierda (hjust = 0) y con sangría (l = 15)
+    plot.caption.position = "plot",
+    plot.caption = element_text(size = 8, color = "gray40", hjust = 0, margin = margin(t = 15, l = 15))
   ) +
   
-  # Etiquetas: Único título descriptivo
+  # Etiquetas: Único título descriptivo y fuente agregada
   labs(
     title = "Distribución de GIRAI según presencia del sector privado en IA",
-    x = "Presencia del Sector Privado",
-    y = "GIRAI (0 - 100)"
+    x = "Presencia del sector privado en IA",
+    y = "GIRAI (0 - 100)",
+    caption = "Fuente: Índice Global de IA Responsable 2023-2024, Centro Global para la Gobernanza de la IA"
   )
 
-# 3. Imprimir el gráfico en consola
-print(grafico_privado)
-
-
+# 3. Calcular e imprimir estadísticas en consola
 estadisticas_privado <- datos_analisis %>%
   group_by(privado) %>%
   summarise(
@@ -55,8 +60,10 @@ estadisticas_privado <- datos_analisis %>%
 
 print(estadisticas_privado)
 
+# 4. Imprimir el gráfico en consola
+print(grafico_privado)
 
-# 4. Exportación parametrizada con ruta y nomenclatura estricta
+# 5. Exportación parametrizada con ruta y nomenclatura estricta
 ggsave(
   filename = "scripts_GIRAI/exports/bi_cuali_cuanti_privado_GIRAI.png",
   plot = grafico_privado,

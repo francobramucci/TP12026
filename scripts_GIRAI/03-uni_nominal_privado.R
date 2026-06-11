@@ -24,21 +24,29 @@ grafico_torta_privado <- ggplot(datos_privado) +
             color = "white", size = 5) +
   
   # Paleta de colores
-  scale_fill_manual(values = c("Sí" = "springgreen4", "No" = "tomato")) +
+  scale_fill_manual(values = c("Sí" = "royalblue", "No" = "tomato")) +
   
   # Temas base para gráficos circulares
   theme_void() + 
   
-  # Personalización del tema 
+  # Personalización del tema estandarizada
   theme(
-    plot.title = element_text(hjust = 0.5, margin = margin(t= 5, b = -10)),
-    legend.position = "bottom"
+    # Título centrado respecto a la imagen completa
+    plot.title.position = "plot",
+    plot.title = element_text(hjust = 0.5, face = "plain", margin = margin(t = 5, b = -10)),
+    
+    legend.position = "bottom",
+    
+    # Fuente anclada al lienzo completo, a la izquierda (hjust = 0) y con sangría (l = 15)
+    plot.caption.position = "plot",
+    plot.caption = element_text(size = 8, color = "gray40", hjust = 1, margin = margin(t = 15, l = 15))
   ) +
   
-  # Etiquetas: Único título descriptivo
+  # Etiquetas: Único título descriptivo y fuente
   labs(
     title = "Proporción de países según participación del sector privado en IA",
-    fill = "Participación Privada:"
+    fill = "Participación Privada en IA:",
+    caption = "Fuente: Índice Global de IA Responsable 2023-2024, Centro Global para la Gobernanza de la IA"
   )
 
 # 3. Imprimir el gráfico en consola
